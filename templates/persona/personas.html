@@ -36,14 +36,14 @@
             <tbody>
             {% for persona in personas %}
             <tr>
-                <td>{{persona.dni}}</td>
+                <td>{{persona.dni|round|int}}</td>
                 <td>{{persona.nombre}}</td>
                 <td>{{persona.apellido}}</td>
                 <td>{{persona.sexo}}</td>
                 <td>{{persona.edad}}</td>
                 <td>{{persona.altura}}</td>
                 <td>{{persona.peso}}</td>
-                <td><a href="/api/personas/{{persona.dni}}" >Ver</a></td>
+                <td><a href="/api/personas/{{persona.dni|round|int}}" >Ver</a></td>
             </tr>
             {% endfor %}
             </tbody>
