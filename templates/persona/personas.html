@@ -31,6 +31,7 @@
             <th>Edad</th>
             <th>Altura</th>
             <th>Peso</th>
+            <th></th>
             </thead>
             <tbody>
             {% for persona in personas %}
@@ -42,6 +43,7 @@
                 <td>{{persona.edad}}</td>
                 <td>{{persona.altura}}</td>
                 <td>{{persona.peso}}</td>
+                <td><a href="/api/personas/{{persona.dni}}" >Ver</a></td>
             </tr>
             {% endfor %}
             </tbody>

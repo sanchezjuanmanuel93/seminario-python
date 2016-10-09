@@ -1,4 +1,6 @@
 from PersonaDatos import PersonaDatos
+import json
+from flask import jsonify
 #from Persona import Persona
 
 a = PersonaDatos()
@@ -12,5 +14,9 @@ a = PersonaDatos()
     #print("Error al actualizose la persona")
 
 personas = a.getAll()
-for p in personas:
-    print(p.nombre)
+results = [persona.toJSON() for persona in personas ]
+
+# str = jsonify(persona)
+print(results)
+# for p in personas:
+    # print(p.nombre)

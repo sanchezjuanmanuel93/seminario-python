@@ -16,6 +16,18 @@ class Persona(object):
         print(("Nombre: " + str(self.nombre)))
 
 
+    def toJSON(self):
+        return {
+                'nombre': self.nombre,
+                'apellido': self.apellido,
+                'edad': self.edad,
+                'sexo': self.sexo,
+                'peso': self.peso,
+                'altura': self.altura,
+                'dni': self.dni
+            }
+
+
 
 
 
