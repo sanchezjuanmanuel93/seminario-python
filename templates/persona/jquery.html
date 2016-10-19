@@ -1,25 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+{% extends "./main.html" %}
+{% block titulo %}Personas Api Rest{% endblock %}
+{% block content %}
+<h3 class="text-center">Personas api Rest</h3>
+<div class="row">
+    <table id="tbl-personas" class="table table-striped">
+        <thead>
+        <th>DNI</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Sexo</th>
+        <th>Edad</th>
+        <th>Altura</th>
+        <th>Peso</th>
+        <th></th>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <a class="btn btn-lg btn-primary center-block" href="agregar"><i class="icon icon-plus"></i> Agregar Persona</a>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ super() }}
 <script type="text/javascript">
     $(document).ready(function(){
-        $.ajax({
-            url: '../api/personas',
-            success: function(data){
-                console.log(data);
-                personas = data;
-                for(i = 0; i<=personas.length;i++){
-                    console.log(personas[i].dni)
-                }
+        $.getJSON( "../api/personas", function( persona ) {
+            console.log(persona);
+            $('#tbl-personas tbody').empty()
+            for(i = 0; i<=persona.length;i++){
+                $('#tbl-personas tbody').append("<tr><td>"+persona[i].dni+"</td><td>"+persona[i].nombre+"</td><td>"+persona[i].apellido+"</td><td>"+persona[i].sexo+"</td><td>"+persona[i].edad+"</td><td>"+persona[i].altura+"</td><td>"+persona[i].peso+"</td><td><a href='/api/personas/"+persona[i].dni+"' >Ver</a></td></tr>");
             }
+
         });
     });
-
 </script>
-</body>
-</html>
+{% endblock %}
