@@ -1,0 +1,76 @@
+{% extends "./main.html" %}
+
+{% block titulo %}Agregar Persona {% endblock %}
+{% block content %}
+<h3>Agregar Nueva Persona</h3>
+<form class="form" action="agregar" method="POST">
+
+    {% for message in form.nombre.errors %}
+    <div class="alert alert-success">
+        <strong>{{ message }}</strong>
+    </div>
+    {% endfor %}
+    {% for message in form.apellido.errors %}
+    <div class="alert alert-success">
+        <strong>{{ message }}</strong>
+    </div>
+    {% endfor %}
+    {% for message in form.dni.errors %}
+    <div class="alert alert-success">
+        <strong>{{ message }}</strong>
+    </div>
+    {% endfor %}
+    {% for message in form.edad.errors %}
+    <div class="alert alert-success">
+        <strong>{{ message }}</strong>
+    </div>
+    {% endfor %}
+    {% for message in form.sexo.errors %}
+    <div class="alert alert-success">
+        <strong>{{ message }}</strong>
+    </div>
+    {% endfor %}
+    {% for message in form.peso.errors %}
+    <div class="alert alert-success">
+        <strong>{{ message }}</strong>
+    </div>
+    {% endfor %}
+    {% for message in form.altura.errors %}
+    <div class="alert alert-success">
+        <strong>{{ message }}</strong>
+    </div>
+    {% endfor %}
+
+    <div class="row">
+        <div class="col-md-4">{{ form.nombre.label }}:</div>
+        <div class="col-md-8">{{ form.nombre(class_="form-control",required=true)}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">{{ form.apellido.label }}:</div>
+        <div class="col-md-8">{{ form.apellido(class_="form-control",required=true)}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">{{ form.dni.label }}:</div>
+        <div class="col-md-8">{{ form.dni(class_="form-control",required=true)}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">{{ form.edad.label }}:</div>
+        <div class="col-md-8">{{ form.edad(class_="form-control",required=true)}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">{{ form.sexo.label }}:</div>
+        <div class="col-md-8">{{ form.sexo}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">{{ form.altura.label }}:</div>
+        <div class="col-md-8">{{ form.altura(class_="form-control",required=true)}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">{{ form.peso.label }}:</div>
+        <div class="col-md-8">{{ form.peso(class_="form-control",required=true)}}</div>
+    </div>
+    <div class="row">
+        <input type="submit" value="Guardar" class="btn btn-lg btn-primary center-block"/>
+    </div>
+</form>
+{% endblock %}
